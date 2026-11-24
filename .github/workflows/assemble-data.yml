@@ -34,23 +34,34 @@ jobs:
       - name: Create archive inventory
         run: |
           python3 - <<'PY'
-          import zipfile, collections
+          import zipfile, collections, io
           path = "RUSSIAN-3GB-Port-joined.zip"
-          with zipfile.ZipFile(path) as z:
-              infos = z.infolist()
+          output = []
+          with zipfile.ZipFile(path) as outer:
+              infos = outer.infolist()
               files = [x for x in infos if not x.is_dir()]
               roots = collections.Counter(x.filename.split('/')[0] for x in infos if x.filename)
-              with open("GTA-Clone-archive-inventory.txt", "w", encoding="utf-8") as f:
-                  f.write(f"Archive: {path}\\n")
-                  f.write(f"Entries total: {len(infos)}\\n")
-                  f.write(f"Files: {len(files)}\\n")
-                  f.write(f"Uncompressed bytes: {sum(x.file_size for x in files)}\\n")
-                  f.write("\\nTop-level entries:\\n")
-                  for name, count in roots.most_common(100):
-                      f.write(f"{name} ({count} entries)\\n")
-                  f.write("\\nFirst 300 file entries:\\n")
-                  for x in files[:300]:
-                      f.write(f"{x.file_size:>14}  {x.filename}\\n")
+              output += [f"Outer archive: {path}", f"Entries total: {len(infos)}", f"Files: {len(files)}", f"Uncompressed bytes: {sum(x.file_size for x in files)}", "", "Outer top-level entries:"]
+              output += [f"{name} ({count} entries)" for name, count in roots.most_common(100)]
+              output += ["", "Outer file entries:"]
+              output += [f"{x.file_size:>14}  {x.filename}" for x in files[:300]]
+              nested = [x for x in files if x.filename.lower().endswith(".zip")]
+              for item in nested:
+                  output += ["", f"Nested archive: {item.filename}"]
+                  try:
+                      with outer.open(item) as nested_stream:
+                          with zipfile.ZipFile(nested_stream) as inner:
+                              inner_infos = inner.infolist()
+                              inner_files = [x for x in inner_infos if not x.is_dir()]
+                              inner_roots = collections.Counter(x.filename.split('/')[0] for x in inner_infos if x.filename)
+                              output += [f"Nested entries total: {len(inner_infos)}", f"Nested files: {len(inner_files)}", f"Nested uncompressed bytes: {sum(x.file_size for x in inner_files)}", "", "Nested top-level entries:"]
+                              output += [f"{name} ({count} entries)" for name, count in inner_roots.most_common(200)]
+                              output += ["", "First 500 nested file entries:"]
+                              output += [f"{x.file_size:>14}  {x.filename}" for x in inner_files[:500]]
+                  except Exception as e:
+                      output.append(f"Could not inspect nested ZIP: {type(e).__name__}: {e}")
+          with open("GTA-Clone-archive-inventory.txt", "w", encoding="utf-8") as f:
+              f.write("\n".join(output) + "\n")
           PY
 
       - name: Save assembled ZIP as workflow artifact
