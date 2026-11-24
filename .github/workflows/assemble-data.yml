@@ -1,0 +1,40 @@
+name: Assemble GTA Clone data parts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all four release parts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p parts
+          gh release download V1.0 --repo "${GITHUB_REPOSITORY}" --pattern 'RUSSIAN-3GB-Port.zip.t0.001' --dir parts
+          gh release download v1.0-data --repo "${GITHUB_REPOSITORY}" --pattern 'RUSSIAN-3GB-Port.zip.t0.002' --dir parts
+          gh release download V1.0-data --repo "${GITHUB_REPOSITORY}" --pattern 'RUSSIAN-3GB-Port.zip.t0.003' --dir parts
+          gh release download V1.0-Data --repo "${GITHUB_REPOSITORY}" --pattern 'RUSSIAN-3GB-Port.zip.t0.004' --dir parts
+          ls -lh parts
+
+      - name: Join and validate archive
+        run: |
+          cat \
+            parts/RUSSIAN-3GB-Port.zip.t0.001 \
+            parts/RUSSIAN-3GB-Port.zip.t0.002 \
+            parts/RUSSIAN-3GB-Port.zip.t0.003 \
+            parts/RUSSIAN-3GB-Port.zip.t0.004 \
+            > RUSSIAN-3GB-Port-joined.zip
+          unzip -tq RUSSIAN-3GB-Port-joined.zip
+
+      - name: Save assembled ZIP as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GTA-Clone-joined-data
+          path: RUSSIAN-3GB-Port-joined.zip
+          if-no-files-found: error
+          retention-days: 7
