@@ -31,10 +31,40 @@ jobs:
             > RUSSIAN-3GB-Port-joined.zip
           unzip -tq RUSSIAN-3GB-Port-joined.zip
 
+      - name: Create archive inventory
+        run: |
+          python3 - <<'PY'
+          import zipfile, collections
+          path = "RUSSIAN-3GB-Port-joined.zip"
+          with zipfile.ZipFile(path) as z:
+              infos = z.infolist()
+              files = [x for x in infos if not x.is_dir()]
+              roots = collections.Counter(x.filename.split('/')[0] for x in infos if x.filename)
+              with open("GTA-Clone-archive-inventory.txt", "w", encoding="utf-8") as f:
+                  f.write(f"Archive: {path}\\n")
+                  f.write(f"Entries total: {len(infos)}\\n")
+                  f.write(f"Files: {len(files)}\\n")
+                  f.write(f"Uncompressed bytes: {sum(x.file_size for x in files)}\\n")
+                  f.write("\\nTop-level entries:\\n")
+                  for name, count in roots.most_common(100):
+                      f.write(f"{name} ({count} entries)\\n")
+                  f.write("\\nFirst 300 file entries:\\n")
+                  for x in files[:300]:
+                      f.write(f"{x.file_size:>14}  {x.filename}\\n")
+          PY
+
       - name: Save assembled ZIP as workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: GTA-Clone-joined-data
           path: RUSSIAN-3GB-Port-joined.zip
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Save archive inventory as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GTA-Clone-archive-inventory
+          path: GTA-Clone-archive-inventory.txt
           if-no-files-found: error
           retention-days: 7
