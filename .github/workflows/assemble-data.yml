@@ -31,10 +31,15 @@ jobs:
             > RUSSIAN-3GB-Port-joined.zip
           unzip -tq RUSSIAN-3GB-Port-joined.zip
 
-      - name: Create archive inventory
+      - name: Install 7z inspection tool
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Inspect ZIP and nested 7z archive
         run: |
           python3 - <<'PY'
-          import zipfile, collections, io
+          import zipfile, collections, shutil, subprocess, os
           path = "RUSSIAN-3GB-Port-joined.zip"
           output = []
           with zipfile.ZipFile(path) as outer:
@@ -58,6 +63,21 @@ jobs:
                               output += [f"{name} ({count} entries)" for name, count in inner_roots.most_common(200)]
                               output += ["", "First 500 nested file entries:"]
                               output += [f"{x.file_size:>14}  {x.filename}" for x in inner_files[:500]]
+                              seven_files = [x for x in inner_files if x.filename.lower().endswith(".7z")]
+                              for seven in seven_files:
+                                  seven_path = os.path.basename(seven.filename)
+                                  output += ["", f"Nested 7z archive: {seven.filename}", f"7z size: {seven.file_size} bytes"]
+                                  with inner.open(seven) as src, open(seven_path, "wb") as dst:
+                                      shutil.copyfileobj(src, dst, length=8 * 1024 * 1024)
+                                  listing = subprocess.run(["7z", "l", "-slt", seven_path], capture_output=True, text=True)
+                                  output += ["", "7z listing (first 500 lines):"] + listing.stdout.splitlines()[:500]
+                                  if listing.returncode != 0:
+                                      output += [f"7z listing error: {listing.stderr[-2000:]}"]
+                                  test = subprocess.run(["7z", "t", "-bb0", seven_path], capture_output=True, text=True)
+                                  output += ["", f"7z integrity test: {'PASS' if test.returncode == 0 else 'FAIL'}"]
+                                  output += test.stdout.splitlines()[-30:]
+                                  if test.returncode != 0:
+                                      output += test.stderr.splitlines()[-30:]
                   except Exception as e:
                       output.append(f"Could not inspect nested ZIP: {type(e).__name__}: {e}")
           with open("GTA-Clone-archive-inventory.txt", "w", encoding="utf-8") as f:
