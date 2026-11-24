@@ -1,0 +1,13 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "",
+  "Category": "Games",
+  "Description": "Original open-world game by Rancakara Games. Unreal Engine 5 project scaffold.",
+  "Modules": [
+    {
+      "Name": "RancakaraOpenWorld",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}
