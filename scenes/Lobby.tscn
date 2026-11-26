@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/file_00000000fb708211adcb0d18e80d5819.png" id="1_palace_bg"]
 
 [sub_resource type="Gradient" id="Gradient_bg"]
 offsets = PackedFloat32Array(0, 0.48, 1)
@@ -84,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_bg")
+texture = ExtResource("1_palace_bg")
 expand_mode = 1
 stretch_mode = 6
 
