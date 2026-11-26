@@ -290,7 +290,7 @@ offset_right = 500.0
 offset_bottom = 165.0
 theme_override_colors/font_color = Color(1, 0.972549, 0.929412, 1)
 theme_override_font_sizes/font_size = 25
-text = "PILIH PERMAINAN"
+text = "ROYAL FISHING"
 
 [node name="SectionSubtitle" type="Label" parent="."]
 offset_left = 50.0
@@ -299,7 +299,7 @@ offset_right = 700.0
 offset_bottom = 190.0
 theme_override_colors/font_color = Color(0.784314, 0.764706, 0.913725, 1)
 theme_override_font_sizes/font_size = 14
-text = "Pilih permainan dan berburu ikan!"
+text = "ARENA TEMBAK IKAN • MODE MULTIPLAYER MENYUSUL"
 
 [node name="GameContainer" type="Control" parent="."]
 offset_left = 48.0
@@ -321,10 +321,10 @@ offset_bottom = 145.0
 color = Color(0.25098, 0.12549, 0.486275, 1)
 
 [node name="ArtIcon" type="Label" parent="GameContainer/DominoCard/Artwork"]
-offset_left = 75.0
-offset_top = 28.0
-offset_right = 185.0
-offset_bottom = 110.0
+offset_left = 150.0
+offset_top = 38.0
+offset_right = 280.0
+offset_bottom = 140.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 62
 text = "◆"
@@ -333,7 +333,7 @@ vertical_alignment = 1
 
 [node name="Title" type="Label" parent="GameContainer/DominoCard"]
 offset_left = 15.0
-offset_top = 151.0
+offset_top = 183.0
 offset_right = 255.0
 offset_bottom = 176.0
 theme_override_colors/font_color = Color(1, 0.972549, 0.929412, 1)
@@ -342,9 +342,9 @@ text = "DOMINO"
 
 [node name="Description" type="Label" parent="GameContainer/DominoCard"]
 offset_left = 15.0
-offset_top = 178.0
-offset_right = 255.0
-offset_bottom = 200.0
+offset_top = 210.0
+offset_right = 405.0
+offset_bottom = 234.0
 theme_override_colors/font_color = Color(0.784314, 0.764706, 0.913725, 1)
 theme_override_font_sizes/font_size = 11
 text = "Strategi klasik • 4 pemain"
@@ -356,23 +356,23 @@ theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBox_game_button")
 theme_override_styles/hover = SubResource("StyleBox_game_button_hover")
 theme_override_styles/pressed = SubResource("StyleBox_game_button")
-offset_left = 174.0
-offset_top = 190.0
-offset_right = 262.0
-offset_bottom = 224.0
+offset_left = 312.0
+offset_top = 228.0
+offset_right = 414.0
+offset_bottom = 260.0
 text = "MAIN"
 
 [node name="FishingCard" type="Panel" parent="GameContainer"]
-offset_left = 453.0
-offset_right = 731.0
-offset_bottom = 235.0
+offset_left = 377.0
+offset_right = 807.0
+offset_bottom = 270.0
 theme_override_styles/panel = SubResource("StyleBox_fishing")
 
 [node name="Artwork" type="ColorRect" parent="GameContainer/FishingCard"]
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 268.0
-offset_bottom = 145.0
+offset_right = 420.0
+offset_bottom = 175.0
 color = Color(0.0196078, 0.341176, 0.494118, 1)
 
 [node name="ArtIcon" type="Label" parent="GameContainer/FishingCard/Artwork"]
@@ -388,8 +388,8 @@ vertical_alignment = 1
 [node name="Title" type="Label" parent="GameContainer/FishingCard"]
 offset_left = 15.0
 offset_top = 151.0
-offset_right = 260.0
-offset_bottom = 176.0
+offset_right = 405.0
+offset_bottom = 205.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
 text = "TEMBAK IKAN"
