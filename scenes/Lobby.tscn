@@ -190,7 +190,6 @@ theme_override_colors/font_color = Color(1, 0.86, 0.52, 1)
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBox_header_action")
 theme_override_styles/hover = SubResource("StyleBox_header_action_hover")
-theme_override_font_sizes/font_size = 17
 text = "🎁 BONUS"
 
 [node name="NewsButton" type="Button" parent="Header"]
@@ -202,7 +201,6 @@ theme_override_colors/font_color = Color(1, 0.86, 0.52, 1)
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBox_header_action")
 theme_override_styles/hover = SubResource("StyleBox_header_action_hover")
-theme_override_font_sizes/font_size = 17
 text = "📣 NEWS"
 
 [node name="SettingsButton" type="Button" parent="Header"]
@@ -214,7 +212,6 @@ theme_override_colors/font_color = Color(1, 0.86, 0.52, 1)
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBox_header_action")
 theme_override_styles/hover = SubResource("StyleBox_header_action_hover")
-theme_override_font_sizes/font_size = 17
 text = "⚙ SETTING"
 
 [node name="SectionTitle" type="Label" parent="."]
