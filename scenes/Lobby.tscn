@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="Texture2D" path="res://assets/file_00000000fb708211adcb0d18e80d5819.png" id="1_bg"]
 [ext_resource type="Texture2D" path="res://assets/cards/fishing.svg" id="2_fishing"]
@@ -135,7 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_bg")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 0
 
 [node name="Header" type="Panel" parent="."]
 offset_left = 20.0
