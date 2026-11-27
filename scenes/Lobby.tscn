@@ -133,10 +133,10 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Header" type="Panel" parent="."]
-offset_left = 24.0
-offset_top = 18.0
-offset_right = 1256.0
-offset_bottom = 116.0
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 1260.0
+offset_bottom = 112.0
 theme_override_styles/panel = SubResource("StyleBox_header")
 
 [node name="Avatar" type="Label" parent="Header"]
@@ -172,7 +172,7 @@ text = "ID: 100001"
 offset_left = 286.0
 offset_top = 21.0
 offset_right = 504.0
-offset_bottom = 78.0
+offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBox_art")
 
 [node name="CoinBalance" type="Label" parent="Header/CoinPanel"]
@@ -258,30 +258,30 @@ theme_override_font_sizes/font_size = 13
 text = "SELAMAT DATANG DI ROYAL PLAY • ARENA PERMAINAN PILIHAN"
 
 [node name="GameContainer" type="Control" parent="."]
-offset_left = 36.0
-offset_top = 220.0
-offset_right = 1244.0
-offset_bottom = 570.0
+offset_left = 28.0
+offset_top = 178.0
+offset_right = 1252.0
+offset_bottom = 608.0
 
 [node name="FishingCard" type="Panel" parent="GameContainer"]
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 226.0
-offset_bottom = 340.0
+offset_bottom = 410.0
 theme_override_styles/panel = SubResource("StyleBox_card")
 
 [node name="Artwork" type="Panel" parent="GameContainer/FishingCard"]
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 217.0
-offset_bottom = 225.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBox_art")
 
 [node name="ArtIcon" type="Label" parent="GameContainer/FishingCard/Artwork"]
 offset_left = 8.0
-offset_top = 30.0
+offset_top = 48.0
 offset_right = 200.0
-offset_bottom = 180.0
+offset_bottom = 250.0
 theme_override_colors/font_color = Color(0.38, 0.91, 1, 1)
 theme_override_font_sizes/font_size = 76
 text = "🐠"
@@ -290,9 +290,9 @@ vertical_alignment = 1
 
 [node name="Title" type="Label" parent="GameContainer/FishingCard"]
 offset_left = 10.0
-offset_top = 229.0
+offset_top = 307.0
 offset_right = 216.0
-offset_bottom =  258.0
+offset_bottom =  355.0
 theme_override_colors/font_color = Color(1, 0.86, 0.43, 1)
 theme_override_font_sizes/font_size = 19
 text = "TEMBAK IKAN"
@@ -300,18 +300,19 @@ horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="GameContainer/FishingCard"]
 offset_left = 8.0
-offset_top = 260.0
+offset_top = 355.0
 offset_right = 218.0
-offset_bottom = 282.0
+offset_bottom = 380.0
 theme_override_colors/font_color = Color(0.76, 0.78, 0.90, 1)
 theme_override_font_sizes/font_size = 10
+visible = false
 text = "PILIH SENJATA & BURU IKAN"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/FishingCard"]
 offset_left = 25.0
-offset_top = 290.0
+offset_top = 360.0
 offset_right = 201.0
-offset_bottom = 330.0
+offset_bottom = 400.0
 theme_override_colors/font_color = Color(1, 0.91, 0.68, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBox_button")
@@ -361,6 +362,7 @@ offset_right = 218.0
 offset_bottom = 282.0
 theme_override_colors/font_color = Color(0.76, 0.78, 0.90, 1)
 theme_override_font_sizes/font_size = 10
+visible = false
 text = "ADU STRATEGI • MULTIPLAYER"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/DominoCard"]
@@ -416,6 +418,7 @@ offset_right = 218.0
 offset_bottom = 282.0
 theme_override_colors/font_color = Color(0.76, 0.78, 0.90, 1)
 theme_override_font_sizes/font_size = 10
+visible = false
 text = "MEJA KARTU • ADU KEBERUNTUNGAN"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/QiuQiuCard"]
@@ -471,6 +474,7 @@ offset_right = 218.0
 offset_bottom = 282.0
 theme_override_colors/font_color = Color(0.76, 0.78, 0.90, 1)
 theme_override_font_sizes/font_size = 10
+visible = false
 text = "POKER • SUSUN KOMBINASI"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/TexasCard"]
@@ -526,6 +530,7 @@ offset_right = 218.0
 offset_bottom = 282.0
 theme_override_colors/font_color = Color(0.76, 0.78, 0.90, 1)
 theme_override_font_sizes/font_size = 10
+visible = false
 text = "CASH OUT SEBELUM PESAWAT JATUH"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/CrashCard"]
@@ -541,16 +546,16 @@ text = "MAIN  ▶"
 
 [node name="BottomNavigation" type="Panel" parent="."]
 offset_left = 24.0
-offset_top = 615.0
+offset_top = 626.0
 offset_right = 1256.0
-offset_bottom = 698.0
+offset_bottom = 710.0
 theme_override_styles/panel = SubResource("StyleBox_header")
 
 [node name="HomeButton" type="Button" parent="BottomNavigation"]
 offset_left = 28.0
-offset_top = 13.0
+offset_top = 12.0
 offset_right = 230.0
-offset_bottom = 68.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(1, 0.84, 0.43, 1)
 theme_override_font_sizes/font_size = 19
 text = "⌂  BERANDA"
