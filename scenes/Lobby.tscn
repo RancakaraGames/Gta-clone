@@ -240,6 +240,7 @@ theme_override_styles/hover = SubResource("StyleBox_header_action_hover")
 text = "⚙ SETTING"
 
 [node name="SectionTitle" type="Label" parent="."]
+visible = false
 offset_left = 42.0
 offset_top = 143.0
 offset_right = 600.0
@@ -249,6 +250,7 @@ theme_override_font_sizes/font_size = 27
 text = "PILIH PERMAINAN"
 
 [node name="SectionSubtitle" type="Label" parent="."]
+visible = false
 offset_left = 44.0
 offset_top = 181.0
 offset_right = 800.0
