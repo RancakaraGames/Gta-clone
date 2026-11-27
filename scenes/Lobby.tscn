@@ -1,6 +1,11 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Texture2D" path="res://assets/file_00000000fb708211adcb0d18e80d5819.png" id="1_bg"]
+[ext_resource type="Texture2D" path="res://assets/cards/fishing.svg" id="2_fishing"]
+[ext_resource type="Texture2D" path="res://assets/cards/domino.svg" id="3_domino"]
+[ext_resource type="Texture2D" path="res://assets/cards/qiuiu.svg" id="4_qiuiu"]
+[ext_resource type="Texture2D" path="res://assets/cards/poker.svg" id="5_poker"]
+[ext_resource type="Texture2D" path="res://assets/cards/crash.svg" id="6_crash"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_header"]
 bg_color = Color(0.025, 0.035, 0.105, 0.88)
@@ -280,6 +285,7 @@ offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBox_art")
 
 [node name="ArtIcon" type="Label" parent="GameContainer/FishingCard/Artwork"]
+visible = false
 offset_left = 8.0
 offset_top = 48.0
 offset_right = 200.0
@@ -290,13 +296,22 @@ text = "🐠"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Illustration" type="TextureRect" parent="GameContainer/FishingCard/Artwork"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_fishing")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Title" type="Label" parent="GameContainer/FishingCard"]
 offset_left = 10.0
 offset_top = 307.0
 offset_right = 216.0
 offset_bottom =  355.0
 theme_override_colors/font_color = Color(1, 0.86, 0.43, 1)
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 24
 text = "TEMBAK IKAN"
 horizontal_alignment = 1
 
@@ -326,17 +341,18 @@ text = "MAIN  ▶"
 offset_left = 245.0
 offset_top = 0.0
 offset_right = 471.0
-offset_bottom = 340.0
+offset_bottom = 410.0
 theme_override_styles/panel = SubResource("StyleBox_card")
 
 [node name="Artwork" type="Panel" parent="GameContainer/DominoCard"]
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 217.0
-offset_bottom = 225.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBox_art")
 
 [node name="ArtIcon" type="Label" parent="GameContainer/DominoCard/Artwork"]
+visible = false
 offset_left = 8.0
 offset_top = 30.0
 offset_right = 200.0
@@ -347,13 +363,22 @@ text = "▰"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Illustration" type="TextureRect" parent="GameContainer/DominoCard/Artwork"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3_domino")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Title" type="Label" parent="GameContainer/DominoCard"]
 offset_left = 10.0
-offset_top = 229.0
+offset_top = 307.0
 offset_right = 216.0
-offset_bottom =  258.0
+offset_bottom = 355.0
 theme_override_colors/font_color = Color(1, 0.86, 0.43, 1)
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 24
 text = "DOMINO"
 horizontal_alignment = 1
 
@@ -369,9 +394,9 @@ text = "ADU STRATEGI • MULTIPLAYER"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/DominoCard"]
 offset_left = 25.0
-offset_top = 290.0
+offset_top = 360.0
 offset_right = 201.0
-offset_bottom = 330.0
+offset_bottom = 400.0
 theme_override_colors/font_color = Color(1, 0.91, 0.68, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBox_button")
@@ -382,17 +407,18 @@ text = "MAIN  ▶"
 offset_left = 490.0
 offset_top = 0.0
 offset_right = 716.0
-offset_bottom = 340.0
+offset_bottom = 410.0
 theme_override_styles/panel = SubResource("StyleBox_card")
 
 [node name="Artwork" type="Panel" parent="GameContainer/QiuQiuCard"]
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 217.0
-offset_bottom = 225.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBox_art")
 
 [node name="ArtIcon" type="Label" parent="GameContainer/QiuQiuCard/Artwork"]
+visible = false
 offset_left = 8.0
 offset_top = 30.0
 offset_right = 200.0
@@ -403,13 +429,22 @@ text = "♛"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Illustration" type="TextureRect" parent="GameContainer/QiuQiuCard/Artwork"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_qiuiu")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Title" type="Label" parent="GameContainer/QiuQiuCard"]
 offset_left = 5.0
-offset_top = 229.0
+offset_top = 307.0
 offset_right = 221.0
-offset_bottom =  258.0
+offset_bottom = 355.0
 theme_override_colors/font_color = Color(1, 0.86, 0.43, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "BANDAR QIU QIU"
 horizontal_alignment = 1
 
@@ -425,9 +460,9 @@ text = "MEJA KARTU • ADU KEBERUNTUNGAN"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/QiuQiuCard"]
 offset_left = 25.0
-offset_top = 290.0
+offset_top = 360.0
 offset_right = 201.0
-offset_bottom = 330.0
+offset_bottom = 400.0
 theme_override_colors/font_color = Color(1, 0.91, 0.68, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBox_button")
@@ -438,17 +473,18 @@ text = "MAIN  ▶"
 offset_left = 735.0
 offset_top = 0.0
 offset_right = 961.0
-offset_bottom = 340.0
+offset_bottom = 410.0
 theme_override_styles/panel = SubResource("StyleBox_card")
 
 [node name="Artwork" type="Panel" parent="GameContainer/TexasCard"]
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 217.0
-offset_bottom = 225.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBox_art")
 
 [node name="ArtIcon" type="Label" parent="GameContainer/TexasCard/Artwork"]
+visible = false
 offset_left = 8.0
 offset_top = 30.0
 offset_right = 200.0
@@ -459,13 +495,22 @@ text = "♠"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Illustration" type="TextureRect" parent="GameContainer/TexasCard/Artwork"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("5_poker")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Title" type="Label" parent="GameContainer/TexasCard"]
 offset_left = 10.0
-offset_top = 229.0
+offset_top = 307.0
 offset_right = 216.0
-offset_bottom =  258.0
+offset_bottom = 355.0
 theme_override_colors/font_color = Color(1, 0.86, 0.43, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "TEXAS POKER"
 horizontal_alignment = 1
 
@@ -481,9 +526,9 @@ text = "POKER • SUSUN KOMBINASI"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/TexasCard"]
 offset_left = 25.0
-offset_top = 290.0
+offset_top = 360.0
 offset_right = 201.0
-offset_bottom = 330.0
+offset_bottom = 400.0
 theme_override_colors/font_color = Color(1, 0.91, 0.68, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBox_button")
@@ -494,17 +539,18 @@ text = "MAIN  ▶"
 offset_left = 980.0
 offset_top = 0.0
 offset_right = 1206.0
-offset_bottom = 340.0
+offset_bottom = 410.0
 theme_override_styles/panel = SubResource("StyleBox_card")
 
 [node name="Artwork" type="Panel" parent="GameContainer/CrashCard"]
 offset_left = 9.0
 offset_top = 9.0
 offset_right = 217.0
-offset_bottom = 225.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBox_art")
 
 [node name="ArtIcon" type="Label" parent="GameContainer/CrashCard/Artwork"]
+visible = false
 offset_left = 8.0
 offset_top = 30.0
 offset_right = 200.0
@@ -515,13 +561,22 @@ text = "✈"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Illustration" type="TextureRect" parent="GameContainer/CrashCard/Artwork"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("6_crash")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Title" type="Label" parent="GameContainer/CrashCard"]
 offset_left = 10.0
-offset_top = 229.0
+offset_top = 307.0
 offset_right = 216.0
-offset_bottom =  258.0
+offset_bottom = 355.0
 theme_override_colors/font_color = Color(1, 0.86, 0.43, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "CRASH PESAWAT"
 horizontal_alignment = 1
 
@@ -537,9 +592,9 @@ text = "CASH OUT SEBELUM PESAWAT JATUH"
 horizontal_alignment = 1
 [node name="PlayButton" type="Button" parent="GameContainer/CrashCard"]
 offset_left = 25.0
-offset_top = 290.0
+offset_top = 360.0
 offset_right = 201.0
-offset_bottom = 330.0
+offset_bottom = 400.0
 theme_override_colors/font_color = Color(1, 0.91, 0.68, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBox_button")
